@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+string compression(string &str)
+{
+    char prev=str[0];
+    string newstr="";
+    int count=1;
+    int n=str.length();
+    for(int i=1;i<=n;i++)
+    {
+        if(str[i]==prev)
+        {
+            count++;
+        }
+        else
+        {
+            newstr+=prev+to_string(count);
+            prev=str[i];
+            count=1;
+        }
+    }
+   // newstr+=prev+to_string(count);
+    if(newstr.empty() || newstr.length()>=str.length())
+    {
+        return str;
+    }
+    return newstr;
+}
+
+int main() {
+    string s="aaaaabbbccddee";
+    string ans=compression(s);
+    cout<<ans;
+}

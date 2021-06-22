@@ -1,0 +1,6 @@
+var emp=new Object();  
+emp.id=101;  
+emp.name="Ravi Malik";  
+console.log(emp.id+" "+emp.name+" "+emp.salary); 
+
+output: 101 Ravi Malik 50000

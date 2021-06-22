@@ -1,0 +1,57 @@
+#include <bits/stdc++.h>
+using namespace std;
+struct Node{
+    int data;
+    Node *left;
+    Node *right;
+    Node(int value)
+    {
+        data=value;
+        left=NULL;
+        right=NULL;
+    }
+};
+int height(Node *node)
+{
+    if(node==NULL)
+    return 0;
+    else
+    {
+        int lh=height(node->left);
+        int rh=height(node->right);
+        return max(lh,rh)+1;
+    }
+}
+
+void printCurrentLevel(Node *root,int level)
+{
+    if(root==NULL)
+    return;
+    if(level==1)
+    cout<<root->data<<" ";
+    else if(level>1)
+    {
+       printCurrentLevel(root->left,level-1);
+       printCurrentLevel(root->right,level-1); 
+    }
+}
+
+void printLevelOrder(Node *node)
+{
+    int h=height(node);
+    for(int i=1;i<=h;i++)
+    printCurrentLevel(node,i);
+}
+int main()
+{
+    Node *root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+ 
+    cout << "Level Order traversal of binary tree is \n";
+    printLevelOrder(root);
+ 
+    return 0;
+}

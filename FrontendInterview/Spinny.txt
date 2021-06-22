@@ -1,0 +1,99 @@
+Q.1 JavaScript
+const obj = {
+ user: {
+   name: "Vaibhav",
+   adrress: {
+     state: "Delhi",
+     zone: "South West"
+   },
+ }
+};
+/*
+
+Gaurav Tyagi18:26
+https://javascript.info/
+Gaurav Tyagi18:31
+https://developer.mozilla.org/en-US/
+
+console.log(obj.user.name);
+console.log(obj);
+console.log(obj.user);
+const flat = (obj,target) =>  {
+    const returnedTarget = Object.assign(target, obj);
+    console.log(returnedTarget);
+
+    // return a new object
+}
+*/
+/*
+const obj = {
+  foo: 1,
+  get bar() {
+    return 2;
+  }
+};
+*/
+/*
+let copy = Object.assign({}, obj);
+console.log(copy);
+// { foo: 1, bar: 2 }
+// The value of copy.bar is obj.bar's getter's return value.
+*/
+// This is an assign function that copies full descriptors
+function completeAssign(target, ...sources) {
+  sources.forEach(source => {
+    let descriptors = Object.keys(source).reduce((descriptors, key) => {
+      descriptors[key] = Object.getOwnPropertyDescriptor(source, key);
+      return descriptors;
+    }, {});
+
+    // By default, Object.assign copies enumerable Symbols, too
+   /* Object.getOwnPropertySymbols(source).forEach(sym => {
+      let descriptor = Object.getOwnPropertyDescriptor(source, sym);
+      if (descriptor.enumerable) {
+        descriptors[sym] = descriptor;
+      }
+    });*/
+    Object.defineProperties(target, descriptors);
+  });
+  return target;
+}
+
+copy = completeAssign({}, obj);
+console.log(copy.user);
+/*
+ {
+   user.name:"Vaibhav",
+   user.adrress.state:"Delhi",
+   user.adrress.zone:"South West"
+ }
+*/
+
+Q.2 HTTP v/s HTTP 2.0
+1) The relatively new HTTP/2 protocol speeds up page load significantly and is widely supported by all major browsers and servers.
+2) Disadvantages of HTTP/1.1
+Previously, HTTP/1.1 was the major version of HTTP network protocol used by the World Wide Web, implemented across clients and servers.
+
+That worked well for 15 years. But as modern day applications and websites evolved and the amount of data to be loaded on a single page increased, the shortcomings of HTTP/1.1 became more prominent.
+Advantages Of HTTP/2
+- Multiplexed, instead of ordered
+Allows using same TCP connection for multiple parallel requests
+- Header compression using HPACK
+Compressed headers, reduced data redundancy
+
+Q.3 Draw box with 3 different color?
+.border-box { 
+  box-sizing: border-box; 
+}
+div[class*="box"] {
+  width: 300px;
+  padding: 30px;
+  border: 30px solid black;
+  border-color:red;
+  background-clip: content-box;
+  background-color:green;
+  text-indent: 20px;
+}
+<section class="demo">  
+<div class="border-box">
+  <p style="margin:40px;"></p>

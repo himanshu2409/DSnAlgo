@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+void TOH(int n,char source,char destination,char helper)
+{
+    if(n==1)
+    {
+        cout<<"Move disk"<<n<<" from "<<source<<" to "<<destination<<endl;
+        return;
+    }
+    TOH(n-1,source,helper,destination);
+    cout<<"Move disk"<<n<<" from "<<source<<" to "<<destination<<endl;
+    TOH(n-1,helper,destination,source);
+    return;
+}
+int main() {
+    int n;
+    cin>>n;
+    char a='A',b='B',c='C';
+    TOH(n,a,b,c);
+}

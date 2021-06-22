@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+
+bool checkValid(string str)
+{
+    int n=str.length();
+    int x;
+    stack<char>st;
+    bool flag=1;
+    for(int i=0;i<n;i++)
+    {
+        if(str[i]=='(' || str[i]=='{' || str[i]=='[')
+        {
+            st.push(str[i]);
+            continue;
+        }
+        if(st.empty())
+            return false;
+        else if(str[i]==')' && st.top()=='(')
+        {
+            st.pop();
+        }
+         else if(str[i]=='}' && st.top()=='{')
+        {
+            st.pop();
+        }
+         else if(str[i]==']' && st.top()=='[')
+        {
+            st.pop();
+        }
+        else
+            flag=0;
+    }
+    if(!st.empty())
+        return false;
+    return flag;
+}
+int main() {
+   string s = "()";
+   bool ans=checkValid(s);
+    cout<<ans<<endl;
+}

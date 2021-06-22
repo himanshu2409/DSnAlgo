@@ -1,0 +1,26 @@
+class Solution {
+    public:
+    vector<string>res;
+    void helper(int open,int close,int n,string current)
+    {
+      if(open==n && close==n)
+      {
+          res.push_back(current);
+          return;
+      }
+        if(open>n || close>n)
+        {
+            return;
+        }
+        helper(open+1,close,n,current+"(");
+        if(open>close)
+        {
+          helper(open,close+1,n,current+")");
+        }
+        
+    }
+    vector<string> generateParenthesis(int n) {
+        helper(0,0,n,"");
+        return res;
+    }
+};

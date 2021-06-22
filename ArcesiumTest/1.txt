@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+int getMinSeconds(vector<int>heights,int h,int u,int v)
+{
+    sort(heights.begin(),heights.end());
+    int l=0;
+    int r=heights.size();-1;
+    int totalTime=0;
+    while(l<=r)
+    {
+        if(l==r)
+        {
+            totalTime+=u;
+            break;
+        }
+        if(heights[l]+heights[r]>=h)
+        {
+            totalTime+=u;
+            r--;
+        }
+        else
+        {
+            totalTime+=v;
+            r--;
+            l++;
+        }
+    }
+    return totalTime;
+}
+int main() {
+   int n=3;
+   int h=1,u=2,v=3;
+   vector<int>height{5,2,3};
+   int ans=getMinSeconds(height,h,u,v);
+   cout<<ans;
+}

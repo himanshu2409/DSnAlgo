@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+void removeDuplicate(int arr[],int n)
+{
+   unordered_map<int,bool>mp;
+   for (int i=0; i<n; i++) {
+
+        // Print the element if it is
+        // there in the hash map
+        if(mp.find(arr[i])!=mp.end())
+        {
+            cout<<arr[i]<<" ";
+        }
+        mp[arr[i]]=true;
+   }
+}
+int main() {
+    int arr[] =  {10, 90, 49, 10, 1, 5,49,1};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    removeDuplicate(arr, n);
+   /* for (int i=0; i<n; i++)
+       cout << arr[i] << " ";
+       */
+    return 0;
+}

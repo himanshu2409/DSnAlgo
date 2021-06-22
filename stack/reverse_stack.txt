@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+void solve(stack<int>&s, int ele)
+{
+    if(s.size()==0)
+    {
+        s.push(ele);
+        return;
+    }
+    int temp=s.top();
+     s.pop();
+     solve(s,ele);
+     s.push(temp);
+     return;
+}
+void reverse(stack<int>&s)
+{ 
+    if(s.size()==1)
+    {
+      return;
+    }
+    int temp=s.top();
+    s.pop();
+    reverse(s);
+    solve(s,temp);
+    return;
+}
+int main() {
+   stack<int> st;
+      int n;
+      cin>>n;
+    for(int i=1;i<=n;i++)
+    {
+        st.push(i);
+    }
+   reverse(st);
+   while (st.size()!=0) {
+        cout << ' ' << st.top();
+        st.pop();
+    }
+   
+}

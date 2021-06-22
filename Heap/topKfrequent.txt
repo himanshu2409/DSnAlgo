@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef pair<int,int>pi;
+void frequentChar(vector<int>&arr,int k)
+{
+    int n = arr.size();
+
+	unordered_map<int, int> mp; // {element,frequency}
+	for(auto e: arr){
+		mp[e]++;
+	}
+	priority_queue<pi, vector<pi>, greater<pi> >minh;
+	for(auto e: mp){
+		minh.push(make_pair(e.second, e.first));
+		if(minh.size() > k)
+			minh.pop();
+	}
+
+	while(minh.size()>0){
+		cout<<minh.top().second<<" ";
+		minh.pop();
+	}
+	cout<<endl;
+
+}
+int main() {
+    
+	int n, k;
+	cin>>n>>k;
+	std::vector<int> arr(n);
+
+	for (int i = 0; i < n; ++i)
+		cin>>arr[i];
+	
+
+	frequentChar(arr, k);
+	return 0;
+} 

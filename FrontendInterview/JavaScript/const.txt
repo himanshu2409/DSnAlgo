@@ -1,0 +1,73 @@
+ const x = 22;
+    {
+        const x = 90;
+        console.log(x);
+   
+        {
+            const x = 77;
+            console.log(x);
+        }
+        {
+            const x = 45;
+            console.log(x);
+        }
+    }
+    console.log(x);
+output: 90
+77
+45
+22
+
+const arr1 = ["pankaj", "sumit", "chandan", "ajay"];
+      
+    console.log(arr1.toString());
+      
+    arr1[2] = "Narayan"; // possible
+      
+    console.log(arr1.toString());
+arr1[4]="Himanshu";
+console.log(arr1.toString());
+
+output:
+pankaj,sumit,chandan,ajay
+pankaj,sumit,Narayan,ajay
+pankaj,sumit,Narayan,ajay,Himanshu
+
+Q.3 
+
+const person = {
+        first_name: "Pankaj",
+        last_name: "Singh",
+        Age: 20,
+        About: "Web Developer and Competitive Programmer"
+    };
+      
+    console.log(person);
+      
+    // It is possible
+    person.first_name = "Aryan";
+    person.last_name = "Yadav";
+    person.Age = 22;
+    person.About = "Commerce undergraduate";
+      
+    console.log(person);
+
+Output: 
+{
+  first_name: 'Pankaj',
+  last_name: 'Singh',
+  Age: 20,
+  About: 'Web Developer and Competitive Programmer'
+}
+{
+  first_name: 'Aryan',
+  last_name: 'Yadav',
+  Age: 22,
+  About: 'Commerce undergraduate'
+}
+
+Q.3
+const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map((number) => number);
+console.log(doubled);
+Output:  [1, 2, 3, 4, 5]

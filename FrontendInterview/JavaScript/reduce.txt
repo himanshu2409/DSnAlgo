@@ -1,0 +1,7 @@
+const numbers = [1, 2, 3, 4, 5];
+//const doubled = numbers.map((number) => number);
+const reducer = (sum, num) => {
+  return sum + num;
+};
+const total = numbers.reduce(reducer, 0);
+console.log(total);

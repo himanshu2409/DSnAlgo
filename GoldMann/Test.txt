@@ -1,0 +1,5 @@
+Order Check - https://leetcode.com/problems/height-checker/
+Encircular - https://leetcode.com/problems/robot-bounded-in-circle/
+
+
+https://leetcode.com/discuss/interview-question/algorithms/855021/Goldman-sachsor-new-grad-2021-sdeanalystor-1st-oa/708639

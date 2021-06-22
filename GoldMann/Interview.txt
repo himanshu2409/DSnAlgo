@@ -1,0 +1,41 @@
+Interview 1
+
+Round 2 (Coderpad):
+
+Given a log file as some array of strings in a specified format where each line begins with an IP address. You have to find the most frequently occurring IP.
+
+Given a 2-D String array of student-marks find the student with the highest average and output his average score. If the average is in decimals, floor it down to the nearest integer.
+
+Round 3
+Given a custom HashMap, in which only equals() method was overridden, he made small changes in the code, and I was expected to give the number of entries in HashMap after each change.
+Asked the internal working of HashMap in detail.
+When the new objects are created by JVM?
+Minimum steps to reach the target by a Knight
+Stock Buy Sell to Maximize Profit
+A code was given that has the method and variable overriding implemented in it with all possible scenarios, and I was expected to give the output in all possible scenarios. (If you have a complete understanding of how overriding works in java, you can answer them).
+How overriding works for methods and variables?
+What are immutable classes?
+
+Interview 2
+
+Round 2(Coderpad): 60 mins
+
+It was a live interview round where needed to solve 2 questions with a screen shared on coderpad. You cannot spend more than 30 mins on 1 question.
+
+Transform the string in following manner:
+Replace substring with * if it matches prefix of the string.
+ababcdababcd -> ab*cd* because 
+(ababcdababcd, hence ab and ababcd can be replaced with *)
+
+[SUPER DAY]
+
+Round 3(DS/Algo): 60 minutes
+
+Print Left View of a Binary Tree
+Sliding Window Maximum (Maximum of all subarrays of size k)
+Expectation: Pseudo Code
+
+Round 4(DS/Algo): 45 minutes
+
+Minimum Number of Platforms Required for a Railway/Bus Station
+Reverse a Linked List in groups of given size
