@@ -1,0 +1,94 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+vector<pair<int,int>>pairCheck(vector<vector<int>>&mat,int sum)
+{
+    int N=mat.size();
+    int M=mat[0].size();
+    unordered_set<int>s;
+    vector<pair<int,int>>ans;
+    for(int i=0;i<N;i++)
+    for(int j=0;j<M;j++)
+    {
+        if(s.find(sum-mat[i][j])!=s.end())
+            ans.push_back({mat[i][j],sum-mat[i][j]});
+            else
+            s.insert(mat[i][j]);
+    }
+    return ans;
+}
+int main() {
+  
+    int n,m;
+    cin>>n>>m;
+   vector<vector<int>>v{ { 1, 2, 3, 4 },
+                      { 5, 6, 7, 8 },
+                      { 9, 10, 11, 12 },
+                      { 13, 14, 15, 16 } };
+
+    int sum=31 ;
+    //cin>>sum;
+    // if (pairCheck(mat, sum)) {
+    //    cout << "YES" << endl;
+    // }
+    // else
+    //     scout << "NO" << endl;
+    vector<pair<int,int>>ans=pairCheck(v,sum);
+    for(auto x:ans)
+    cout<<x.first<<" "<<x.second;
+    return 0;
+}
+
+     
+Approach 2 (Best)
+
+#include <bits/stdc++.h>
+using namespace std;
+vector<int> targetPair(vector<vector<int>>&arr, int target) {
+		vector<int>rv = { -1, -1 };
+		int rows = arr.size();
+		int cols = arr[0].size();
+		int left = 0;
+		int right = rows * cols - 1;
+		while (left < right) {
+			int l_row = left / cols;
+			int l_col = left % cols;
+			int r_row = right / cols;
+			int r_col = right % cols;
+			int sum = arr[l_row][l_col] + arr[r_row][r_col];
+			if (sum > target) {
+				right--;
+			} else if (sum < target) {
+				left++;
+			} else {
+				rv[0] = arr[l_row][l_col];
+				rv[1] = arr[r_row][r_col];
+				return rv;
+			}
+
+		}
+		return rv;
+	}
+int main() {
+  
+    int n,m;
+    cin>>n>>m;
+   vector<vector<int>>v{ { 1, 2, 3, 4 },
+                      { 5, 6, 7, 8 },
+                      { 9, 10, 11, 12 },
+                      { 13, 14, 15, 16 } };
+
+    int sum=31 ;
+    //cin>>sum;
+    // if (pairCheck(mat, sum)) {
+    //    cout << "YES" << endl;
+    // }
+    // else
+    //     scout << "NO" << endl;
+    vector<int>ans=targetPair(v,sum);
+    for(auto x:ans)
+    cout<<x<<" ";
+    return 0;
+}
+
+     

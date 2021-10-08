@@ -1,0 +1,61 @@
+#include <bits/stdc++.h>
+using namespace std;
+void OddEven(int arr[],int n)
+{
+    int l=0,r=n-1,k=0;
+    while(l<r)
+    {
+        while(arr[l]%2!=0 && l<r) //odd
+        {
+            cout<<"\nodd :"<<arr[l];
+            l++;
+            k++; //
+        }
+        while(arr[r]%2==0 && l<r) //odd
+        {
+            r--;
+        }
+        if(l<r)
+        {
+            swap(arr[l],arr[r]);
+        }
+        else
+        break;
+    }
+     sort(arr, arr + k, greater<int>());
+ 
+    // Sort even number in ascending order
+    sort(arr + k, arr + n);
+}
+int main() {
+   int arr[] = { 1, 3, 2, 7, 5, 4 };
+    int n = sizeof(arr) / sizeof(int);
+    OddEven(arr, n);
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    return 0;
+}
+approach 2
+
+#include <bits/stdc++.h>
+using namespace std;
+bool compare(int a,int b)
+{
+     if(a%2==0 && b%2==0) // a & b even
+     return a<b;
+     if(a%2!=0 && b%2!=0) //a & b odd
+     return a>b;
+     if(a%2!=0 )
+     {
+         return true;
+     }
+     return false;
+}
+int main() {
+   int arr[] = { 1, 3, 2, 7, 5, 4 };
+    int n = sizeof(arr) / sizeof(int);
+    sort(arr, arr+n,compare);
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    return 0;
+}

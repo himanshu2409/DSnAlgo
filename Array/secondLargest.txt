@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+using namespace std;
+/*void secondLargest(int arr[],int n)
+{
+    if(n<2)
+    {
+        return;
+    }
+    sort(arr,arr+n);
+   for (int i = n - 2; i >= 0; i--) {
+		if (arr[i] != arr[n - 1]) {
+			cout<<arr[i];
+			return;
+		}
+	}
+
+}
+*/
+//Approach 2
+void secondLargest(int arr[],int n)
+{
+    if(n<2)
+    {
+        return;
+    }
+    int largest=INT_MIN,second=INT_MIN;
+    for(int i=0;i<n;i++)
+    {
+        largest=max(largest,arr[i]);
+    }
+
+     for(int i=0;i<n;i++)
+    {
+        if(arr[i]!=largest)
+        second=max(second,arr[i]);
+    }
+
+    if(second==INT_MIN)
+    {
+        cout<<"No second largest"<<endl;
+    }
+    else
+    {
+        cout<<second<<endl;
+    }
+}
+int main() {
+   int arr[] = { 12, 34, 1, 10, 34, 1 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+    secondLargest(arr, n);
+    return 0;
+}
